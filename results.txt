@@ -1,0 +1,20 @@
+=============== SVM ===============
+F1-Score: 0.7456, Resultados: 0.70 +- 0.05, min: 0.61, max: 0.76
+
+
+=============== KNN ===============
+Melhor k na validação: 1 (acc=0.62)
+acurácia no teste: 0.64
+F1-Score: 0.6433
+
+=============== MLP ===============
+Melhores parâmetros:  {'activation': 'logistic', 'alpha': 0.01, 'hidden_layer_sizes': (200,), 'learning_rate': 'constant', 'solver': 'adam'}
+Melhor score:  0.7312662192393736
+Acurácia no teste:  0.8212765957446808
+F1-Score: 0.8209, Resultados: 0.73 +- 0.00, min: 0.73, max: 0.73
+
+=============== RANDOM FOREST ===============
+Melhores parâmetros:  {'max_depth': 25, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 300}
+Melhor score:  0.643006711409396
+Acurácia no teste:  0.7276595744680852
+F1-Score: 0.7269, Resultados: 0.64 +- 0.00, min: 0.64, max: 0.64
