@@ -7,15 +7,9 @@ from sklearn.neural_network import MLPClassifier
 from utils import do_cv_svm, imprimir_estatisticas, plotar_matriz_confusao, selecionar_melhor_k
 from sklearn.metrics import accuracy_score, f1_score
 
-# Carregue os arquivos de texto
-# X_train = np.loadtxt('Features/v1/train_features.txt')
-# y_train = np.genfromtxt('Features/v1/train_labels.txt', dtype='str')
-# X_teste = np.loadtxt('Features/v1/validation_features.txt')
-# y_teste = np.genfromtxt('Features/v1/validation_labels.txt', dtype='str')
-
 # Divida os dados em conjuntos de treinamento e teste
-X = np.loadtxt('Features/v2/caracteristicas.txt')
-y = np.loadtxt('Features/v2/rotulos.txt', dtype='str')
+X = np.loadtxt('Features/caracteristicas.txt')
+y = np.loadtxt('Features/rotulos.txt', dtype='str')
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42)
@@ -23,6 +17,25 @@ X_train, X_test, y_train, y_test = train_test_split(
 # Em seguida, separamos parte do conjunto de treino para a validação.
 X_train, X_val, y_train, y_val = train_test_split(
     X_train, y_train, test_size=0.2, stratify=y_train, random_state=1)
+
+print(f'Número de imagens de treinamento: {X_train.shape[0]}')
+print(f'Número de imagens de teste: {X_test.shape[0]}')
+print(f'Número de características: {X_train.shape[1]}')
+
+# Visualize os dados
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.hist(y_train)
+plt.title('Treinamento')
+plt.xlabel('Rótulos')
+plt.ylabel('Número de imagens')
+plt.subplot(1, 2, 2)
+plt.hist(y_test)
+plt.title('Teste')
+plt.xlabel('Rótulos')
+plt.ylabel('Número de imagens')
+plt.tight_layout()
+plt.show()
 
 # Normalizar os dados de treinamento, teste e validação
 print("Normalizando os dados...")

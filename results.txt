@@ -1,7 +1,6 @@
 =============== SVM ===============
 F1-Score: 0.7456, Resultados: 0.70 +- 0.05, min: 0.61, max: 0.76
 
-
 =============== KNN ===============
 Melhor k na validação: 1 (acc=0.62)
 acurácia no teste: 0.64
