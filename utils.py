@@ -5,9 +5,27 @@ import numpy as np
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
 from sklearn.discriminant_analysis import StandardScaler
 from sklearn.model_selection import StratifiedKFold, train_test_split
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 import seaborn as sns
 from tqdm import tqdm
+
+
+def selecionar_melhor_k(ks, X_treino, X_val, y_treino, y_val):
+    acuracias_val = []
+
+    for k in ks:
+        knn = KNeighborsClassifier(n_neighbors=k)
+        knn.fit(X_treino, y_treino)
+        pred = knn.predict(X_val)
+        acuracias_val.append(accuracy_score(y_val, pred))
+
+    melhor_val = max(acuracias_val)
+    melhor_k = ks[np.argmax(acuracias_val)]
+    knn = KNeighborsClassifier(n_neighbors=melhor_k)
+    knn.fit(np.vstack((X_treino, X_val)), [*y_treino, *y_val])
+
+    return knn, melhor_k, melhor_val
 
 
 def selecionar_melhor_svm(Cs, gammas, X_treino: np.ndarray, X_val: np.ndarray,

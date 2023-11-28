@@ -51,8 +51,8 @@ validation_features, validation_filenames = extract_features_from_folder(
     validation_folder, intermediate_layer_model)
 
 # Save the features and filenames to text files
-np.savetxt('train_features.txt', train_features)
-np.savetxt('validation_features.txt', validation_features)
-np.savetxt('train_labels.txt', np.array(train_filenames), fmt='%s')
-np.savetxt('validation_labels.txt', np.array(
+np.savetxt('Features/v1/train_features.txt', train_features)
+np.savetxt('Features/v1/validation_features.txt', validation_features)
+np.savetxt('Features/v1/train_labels.txt', np.array(train_filenames), fmt='%s')
+np.savetxt('Features/v1/validation_labels.txt', np.array(
     validation_filenames), fmt='%s')

@@ -3,11 +3,14 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 # Carregue os arquivos de texto
-train_features = np.loadtxt('Features/train_features.txt')
-train_labels = np.genfromtxt('Features/train_labels.txt', dtype='str')
-validation_features = np.loadtxt('Features/validation_features.txt')
-validation_labels = np.genfromtxt(
-    'Features/validation_labels.txt', dtype='str')
+# train_features = np.loadtxt('Features/v1/train_features.txt')
+# train_labels = np.genfromtxt('Features/v1/train_labels.txt', dtype='str')
+# validation_features = np.loadtxt('Features/v1/validation_features.txt')
+# validation_labels = np.genfromtxt(
+#     'Features/v1/validation_labels.txt', dtype='str')
+
+train_features = np.loadtxt('Features/v2/caracteristicas.txt')
+train_labels = np.loadtxt('Features/v2/rotulos.txt', dtype='str')
 
 # Divida os dados em conjuntos de treinamento e teste
 X_train, X_test, y_train, y_test = train_test_split(
